@@ -5,16 +5,6 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        <!-- <h1>Iniciar sesión</h1>
-        <form method="POST" action="/login.html">
-            <label for="usuario">Usuario:</label>
-            <input type="text" name="usuario" id="usuario" required><br>
-
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" name="contrasena" id="contrasena" required><br>
-
-            <input type="submit" value="Iniciar sesión">
-        </form> -->
         <div class="container">
             <div class="column">
                 <h1 class="title">Proyecto 3 BDD</h1>
@@ -42,7 +32,7 @@
         </div>
         <div class='container2'>
             <div class='container2-grid'>
-                <form>
+                <form method="POST" action="/login.html">
                     <div class='grid-info'>
                         <label for="usuario" class="label">Usuario: </label>
                     </div>

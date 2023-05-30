@@ -7,30 +7,30 @@ def conectar(uri, usuario, contrasena):
     graph = Graph(uri, user=usuario, password=contrasena)
     return graph
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def register(uri, usuario, contrasena):
+    print("Request method:", request.method)
+
     if request.method == 'POST':
-        user = request.form.get('usuario')
-        passwords = request.form.get('contrasena')
+        usu = request.form.get('usuario')
+        contra = request.form.get('contrasena')
 
-        print("Usuario: ", usuario)
-        print("Contraseña: ", passwords)
-
-        if usuario and passwords:
+        if usuario and contrasena:
             try:
+                # Realiza las operaciones para guardar los datos en la base de datos
                 graph = conectar(uri, usuario, contrasena)
-                cuenta = Node("Cuenta", usuario=user, contrasena=passwords)
-                print("Cuenta: ", cuenta)
-
+                cuenta = Node("Cuenta", usuario=usu, contrasena=contra)
                 graph.create(cuenta)
 
-                return index()  # Redirigir a la página de éxito
+                return success()
             except Exception as e:
                 error_message = "Error al registrar la cuenta: " + str(e)
                 return render_template('register.html', resultado=error_message)
         else:
             return render_template('register.html', resultado="Usuario y contraseña requeridos.")
+
     return render_template('register.html')
+
 
 @app.route('/success.html')
 def success():
