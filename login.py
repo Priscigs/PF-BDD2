@@ -35,9 +35,9 @@ def logins(uri, usuario, contrasena):
 
     return render_template('login.html')
 
-@app.route('/success2.html')
+@app.route('/principal.html')
 def success():
     #mensaje = "¡Registro exitoso! Gracias por registrarte."
-    return render_template('success2.html')
+    return render_template('principal.html')
 
 
