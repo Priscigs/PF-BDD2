@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Registro de Cuentas</title>
-</head>
-<body>
-    <h1>Registro de Cuentas</h1>
-    <form method="POST" action="/register.html">
-        <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" id="usuario" required><br>
+    <head>
+        <title>Registro de Cuentas</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+        <!-- <h1>Registro de Cuentas</h1>
+        <form method="POST" action="/register.html">
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" id="usuario" required><br>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" id="contrasena" required><br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" id="contrasena" required><br>
 
-        <input type="submit" value="Registrar">
+            <input type="submit" value="Registrar">
+            
+        </form>
+        <p>{{ resultado }}</p> -->
+        <div class="container">
+            <div class="column">
+                <h1 class="title">Proyecto 3 BDD</h1>
+            </div>
+            <div class="column">
+                
+            </div>
+            <div class="column">
+                <div class="container1">
+                    <div class="column1">
+                        <a href="{{ url_for('index') }}">
+                            <button class="btn-login">Back</button>
+                        </a>
+                    </div>
+                    <div class="column1">
+                        <a href="/login.html">
+                            <button class="btn-register">Login</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container3">
+            <h1>Registro</h1>
+        </div>
+        <div class='container2'>
+            <div class='container2-grid'>
+                <form>
+                    <div class='grid-info'>
+                        <label for="usuario" class="label">Usuario: </label>
+                    </div>
+                    <div class='grid-info'>
+                        <input type="text" name="usuario" id="usuario" class="input" placeholder="Usuario" size='70'></input>
+                    </div>
+                    <div class='grid-info'>
+                        <label for="contrasena" class="label">Contraseña: </label>
+                    </div>
+                    <div class='grid-info'>
+                        <input type="password" name="contrasena" id="contrasena" class="input" placeholder="Contraseña" size='70'></input>
+                    </div>
+                    <div class='grid-info'>
+                        <input type="submit" class="btn-register "value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
         
-    </form>
-    <p>{{ resultado }}</p>
-</body>
+    </body>
 </html>
