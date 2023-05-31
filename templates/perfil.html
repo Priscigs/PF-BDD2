@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proyecto 3 BDD - Usuario</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container-title">
+        <div class="column">
+            <h1 class="title">Proyecto 3 BDD</h1>
+        </div>
+    </div>
+
+    <div class="container-title">
+        <div class="column">
+            <h1 class="title">Pantalla de Usuario</h1>
+        </div>
+    </div>
+
+    <div class="container-password">
+      <div class="column-password">
+        <form method="POST" action="/perfil.html">
+          <div class="input-container">
+            <input type="password" name="newPassword" id="input-password" class="input-password" placeholder="Ingresar contraseña nueva"  />
+          </div>
+          <div class="btn-container">
+            <div class="column">
+              <button type="submit" class="btn-change-password">Actualizar Contraseña</button>
+            </div>
+            <div class="column">
+              <form method="POST" action="/borrar_perfil">
+                <input type="hidden" name="user" value="{{ user }}">
+                <button type="submit" class="btn-delete-profile">Borrar Perfil</button>
+              </form>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+</body>
+</html>
