@@ -41,9 +41,9 @@ def logins(uri, usuario, contrasena):
 
     return render_template('login.html')
 
-@app.route('/perfil.html', methods=['POST'])
+@app.route('/principal.html', methods=['POST'])
 def success():
 
     #print("Nombre en el método success: ", nombre)
 
-    return perfil()
+    return render_template('principal.html')
