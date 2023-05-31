@@ -15,11 +15,11 @@ def register(uri, usuario, contrasena):
         usu = request.form.get('usuario')
         contra = request.form.get('contrasena')
 
-        if usuario and contrasena:
+        if usu and contra:
             try:
                 # Realiza las operaciones para guardar los datos en la base de datos
                 graph = conectar(uri, usuario, contrasena)
-                cuenta = Node("Cuenta", usuario=usu, contrasena=contra)
+                cuenta = Node("Usuario", titulo=usu, contraseña=contra)
                 graph.create(cuenta)
 
                 return success()

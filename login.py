@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from py2neo import Graph, NodeMatcher
+from perfil import perfil
 
 app = Flask(__name__)
 
@@ -21,7 +22,12 @@ def logins(uri, usuario, contrasena):
             graph = conectar(uri, usuario, contrasena)
             matcher = NodeMatcher(graph)
 
-            node = matcher.match("Cuenta", usuario=usuario_input, contrasena=contrasena_input).first()
+            node = matcher.match("Usuario", titulo=usuario_input, contraseña=contrasena_input).first()
+
+            print("Node: ", node)
+
+            # Imprimir solo el nombre del usuario.
+            #print("Nombre: ", node['titulo'])
 
             if node:
                 # Credenciales válidas
@@ -35,9 +41,9 @@ def logins(uri, usuario, contrasena):
 
     return render_template('login.html')
 
-@app.route('/principal.html')
+@app.route('/perfil.html', methods=['POST'])
 def success():
-    #mensaje = "¡Registro exitoso! Gracias por registrarte."
-    return render_template('principal.html')
 
+    #print("Nombre en el método success: ", nombre)
 
+    return perfil()
