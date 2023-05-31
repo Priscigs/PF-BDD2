@@ -220,7 +220,7 @@
   transition: background-color 0.3s;
 }
 
-
+/*Área del perfil*/
 .column-password {
   display: flex;
   justify-content: center;
@@ -230,6 +230,14 @@
 .input-container {
   display: flex;
   justify-content: center;
+}
+
+.input-username {
+  margin-bottom: 10px;
+  width: 100%; /* Ancho del input */
+  padding: 10px; /* Espacio interno del input */
+  font-size: 16px; /* Tamaño de fuente del input */
+  height: 100%;
 }
 
 .input-password {

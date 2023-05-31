@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from py2neo import Graph, NodeMatcher
-from principal import princi
+from perfil import perfil
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def logins(uri, usuario, contrasena):
 
             if node:
                 # Credenciales válidas
-                return success(node['titulo'])
+                return success()
             else:
                 # Credenciales inválidas
                 return "No se ha encontrado la cuenta en la BDD"
@@ -41,9 +41,9 @@ def logins(uri, usuario, contrasena):
 
     return render_template('login.html')
 
-@app.route('/login.html', methods=['POST'])
-def success(nombre):
+@app.route('/perfil.html', methods=['POST'])
+def success():
 
     #print("Nombre en el método success: ", nombre)
 
-    return princi(nombre)
+    return perfil()
