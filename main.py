@@ -28,5 +28,9 @@ def login():
     
     return logins(uri, usuario, contrasena)
 
+@app.route('/genre.html')
+def genre():
+    return render_template('genre.html')
+
 if __name__ == '__main__':
     app.run()
