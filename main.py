@@ -214,6 +214,10 @@ def genre_rom():
 def delete():
     return render_template('/delete.html')
 
+@app.route('/modifyP')
+def modifyP():
+    return render_template('/modifyP.html')
+
 @app.route('/eliminar-cuenta', methods=['POST'])
 def eliminar_cuenta():
     if request.method == 'POST':
@@ -231,6 +235,33 @@ def eliminar_cuenta():
                 # Eliminar el nodo de la cuenta
                 graph.delete(node)
                 return "Cuenta eliminada exitosamente."
+            else:
+                return "No se ha encontrado la cuenta en la base de datos."
+        except Exception as e:
+            print("Error al conectar a la base de datos:", str(e))
+            return "Error al conectar a la base de datos."
+
+    return redirect('/')
+
+@app.route('/modificar-contrasena', methods=['POST'])
+def modificar_contrasena():
+    if request.method == 'POST':
+        usuario_input = request.form.get('delusuario')
+        contrasena_input = request.form.get('delcontrasena')
+        nueva_contrasena_input = request.form.get('delcontrasena1')
+
+        try:
+            # Crear una conexión a la base de datos
+            graph = Graph(uri="neo4j+s://ca536792.databases.neo4j.io", user="neo4j", password="9kEkEZcx8aTRfBKerXNxeEw8U1P9FNSH1Zvu1a4dG2Q")
+            matcher = NodeMatcher(graph)
+
+            node = matcher.match("Usuario", titulo=usuario_input, contraseña=contrasena_input).first()
+
+            if node:
+                # Modificar la contraseña del nodo de usuario
+                node['contraseña'] = nueva_contrasena_input
+                graph.push(node)
+                return "Contraseña modificada exitosamente."
             else:
                 return "No se ha encontrado la cuenta en la base de datos."
         except Exception as e:
