@@ -218,6 +218,10 @@ def delete():
 def modifyP():
     return render_template('/modifyP.html')
 
+@app.route('/deleteR')
+def deleteR():
+    return render_template('/deleteR.html')
+
 @app.route('/eliminar-cuenta', methods=['POST'])
 def eliminar_cuenta():
     if request.method == 'POST':
@@ -270,6 +274,30 @@ def modificar_contrasena():
 
     return redirect('/')
 
+@app.route('/eliminar-rating', methods=['POST'])
+def eliminar_rating():
+    if request.method == 'POST':
+        titulo_input = request.form.get('titulo')
+
+        try:
+            # Crear una conexión a la base de datos
+            graph = Graph(uri="neo4j+s://ca536792.databases.neo4j.io", user="neo4j", password="9kEkEZcx8aTRfBKerXNxeEw8U1P9FNSH1Zvu1a4dG2Q")
+            matcher = NodeMatcher(graph)
+
+            node = matcher.match("Pelicula", titulo=titulo_input).first()
+
+            if node:
+                # Eliminar la propiedad 'rating' del nodo de película
+                node.pop('rating')
+                graph.push(node)
+                return "La propiedad 'rating' ha sido eliminada del nodo de película."
+            else:
+                return "No se ha encontrado la película en la base de datos."
+        except Exception as e:
+            print("Error al conectar a la base de datos:", str(e))
+            return "Error al conectar a la base de datos."
+
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run()
