@@ -17,7 +17,7 @@
         <div class="column">
             <div class="container1">
                 <div class="column1">
-                    <a href="{{ url_for('index') }}">
+                    <a href="{{ url_for('principal') }}">
                         <button class="btn-login">Back</button>
                     </a>
                 </div>
@@ -36,7 +36,7 @@
     <div class="container3">
         <div class="containerInfo">
             <div class="card">
-                <a href="{{ url_for('genre_movies', genre='Action') }}">
+                <a href="{{ url_for('genre_action', genre='Action') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/action.jpeg" alt="Italian Trulli">
                         <div class="containerCard">
@@ -49,7 +49,7 @@
         </div>
         <div class="containerInfo">
             <div class="card">
-                <a href="bdd_edit_delete.html">
+                <a href="{{ url_for('genre_scifi', genre='Ciencia Ficcion') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/scifi.jpeg" alt="Italian Trulli">
                         <div class="containerCard">
@@ -62,7 +62,7 @@
         </div>
         <div class="containerInfo">
             <div class="card">
-                <a href="bdd_filter.html">
+                <a href="{{ url_for('genre_com', genre='Comedy') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/comedy.jpeg" alt="Italian Trulli">
                         <div class="containerCard">
@@ -80,7 +80,7 @@
     <div class="container4">
         <div class="containerInfo">
             <div class="card">
-                <a href="bdd_add.html">
+                <a href="{{ url_for('genre_drama', genre='Drama') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/drama.jpeg" alt="Italian Trulli">
                         <div class="containerCard">
@@ -93,7 +93,7 @@
         </div>
         <div class="containerInfo">
             <div class="card">
-                <a href="bdd_edit_delete.html">
+                <a href="{{ url_for('genre_horror', genre='Horror') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/horror.jpeg" alt="Italian Trulli">
                         <div class="containerCard">
@@ -106,7 +106,7 @@
         </div>
         <div class="containerInfo">
             <div class="card">
-                <a href="bdd_filter.html">
+                <a href="{{ url_for('genre_rom', genre='Romance') }}">
                     <button type="button" class="btnCard">
                         <img style="height: 130px;" class="imageMain" src="../static/images/romance.jpeg" alt="Italian Trulli">
                         <div class="containerCard">

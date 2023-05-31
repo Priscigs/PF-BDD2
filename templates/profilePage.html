@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h1 class="title">Proyecto 3 BDD</h1>
+        </div>
+        <div class="column">
+            
+        </div>
+        <div class="column">
+            <div class="container1">
+                <div class="column1">
+                    <a href="{{ url_for('principal') }}">
+                        <button class="btn-login">Back</button>
+                    </a>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="container5">
+        <h1>Perfil</h1>
+    </div>
+    <div class='container6'>
+        <div class='container6-grid'>
+       
+            <div class='grid-info'>
+                <a href="{{ url_for('delete') }}">
+                    <button class="btn-profileP">Eliminar Cuenta</button>
+                </a>
+            </div>
+            <div class='grid-info'>
+                <a href="{{ url_for('profilePage') }}"></a>
+                    <button class="btn-profileP">Modificar Contraseña</button>
+                </a>
+            </div>
+            <div class='grid-info'>
+                <a href="{{ url_for('profilePage') }}">
+                    <button class="btn-profileP">Eliminar Rating</button>
+                </a>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
