@@ -125,3 +125,65 @@
   align-items: center;
   margin-top: 90px;
 }
+
+.container4 {
+  width: 600px;
+  height: 100px;
+  background-color: transparent;
+  margin: 0 auto;
+  border-radius: 1rem;
+  font-family: Arial, sans-serif; /* Cambia la fuente a Arial o una fuente sans-serif genérica */
+  font-size: 40px; /* Tamaño de fuente */
+  font-weight: bold; /* Hace que el texto sea negrita */
+  color: #03045e; /* Color del texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 180px;
+}
+
+.container5 {
+  width: 600px;
+  height: 100px;
+  background-color: transparent;
+  margin: 0 auto;
+  border-radius: 1rem;
+  font-family: Arial, sans-serif; /* Cambia la fuente a Arial o una fuente sans-serif genérica */
+  font-size: 40px; /* Tamaño de fuente */
+  font-weight: bold; /* Hace que el texto sea negrita */
+  color: #03045e; /* Color del texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.containerInfo {
+  display: flex;
+  grid-template-columns: 200px 200px 200px;
+  background-color: transparent;
+  padding: 20px 10px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.containerCard {
+  padding-top: -100px;
+}
+
+.btnCard {
+  background-color: transparent;
+  padding: 20px;
+  border: none;
+}
