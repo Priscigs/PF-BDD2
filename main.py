@@ -313,19 +313,30 @@ def eliminar_PR():
             graph = Graph(uri="neo4j+s://ca536792.databases.neo4j.io", user="neo4j", password="9kEkEZcx8aTRfBKerXNxeEw8U1P9FNSH1Zvu1a4dG2Q")
             matcher = NodeMatcher(graph)
 
-            node = matcher.match("Pelicula", titulo=titulo_input).first()
+            node = matcher.match("Usuario", titulo=titulo_input).first()
+
+            print("Node: ", node.relationships)
 
             if node:
-                # Eliminar la propiedad 'rating' del nodo de película
-                for rel in node.relationships:
 
-                    if rel.type == 'es_genero':
-                        rel.pop('es_genero')
+                relationships = graph.match(start_node=node, rel_type='has_rated')
+
+                print("Relationships: ", relationships)
+
+                # Eliminar la propiedad 'rating' del nodo de película
+                for rel in relationships:
+
+                    print("Rel: ", rel.type)
+
+                    if rel.type == 'has_rated':
+                        rel.pop('rating')
+
+                        print("Relación: ", rel)
                         graph.push(rel)
 
-                return "La propiedad 'es_genero' de la releación de la película fue eliminada."
+                        return "La propiedad 'rating' de la releación de la película fue eliminada."
             else:
-                return "No se ha encontrado la película en la base de datos."
+                return "No se ha encontrado la propiedad de la relación en la base de datos."
         except Exception as e:
             print("Error al conectar a la base de datos:", str(e))
             return "Error al conectar a la base de datos."
